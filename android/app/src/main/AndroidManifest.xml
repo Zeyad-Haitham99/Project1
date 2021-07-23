@@ -1,7 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.operahouse">
-   <application
-        android:label="operahouse"
+    package="com.example.opera_house">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <application
+        android:label="opera_house"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

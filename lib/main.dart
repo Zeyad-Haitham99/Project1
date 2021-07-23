@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:operahouse/Welcome_Screen.dart';
-import 'package:operahouse/loginPage.dart';
+import 'package:flutter/services.dart';
+import 'package:opera_house/routes.dart';
+import 'package:opera_house/screens/splash/splash_screen.dart';
+import 'package:opera_house/theme.dart';
 
-//Welcome Screen
-void main() => runApp(MyApp());
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(MyApp());
 }
 
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
+  static final title = 'Search AppBar';
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        textTheme: TextTheme(
-          body1: TextStyle(color: Colors.black54),
-        ),
-      ),
-      initialRoute: Welcomescreen.id,
-      routes: {
-        Welcomescreen.id: (context) => Welcomescreen(),
-        LoginPage.id: (context) => LoginPage()
-      },
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: theme(),
+      darkTheme: ThemeData.dark(),
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }
